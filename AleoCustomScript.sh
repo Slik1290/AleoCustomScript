@@ -118,13 +118,13 @@ main() {
 	printf_n "Leaderboard info " "$leaderboard_info"
 	
 	local mined_blocks=`jq -r ".blocksMined | length" <<< "$leaderboard_info"`
-	printf_n "Mined Blocks " "$mined_blocks"
+	printf_n "Mined Blocks: $mined_blocks"
 	local position=`jq -r ".position" <<< "$leaderboard_info"`
 	printf_n "Position " "$position"
 	local points=`jq -r ".score" <<< "$leaderboard_info"`
 	printf_n "points " "$points"
 	
-	printf_n "Wallet Address " "$wallet_address"
+	printf_n "Wallet Address : $wallet_address "
 	
 	local node_version="`snarkos --version` v`jq -r '.result.version' <<< \"$node_info\"`"
 	printf_n "Node Version " "$node_version"
