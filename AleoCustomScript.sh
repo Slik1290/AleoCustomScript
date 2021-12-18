@@ -124,7 +124,7 @@ main() {
 	local points=`jq -r ".score" <<< "$leaderboard_info"`
 	printf_n "points " "$points"
 	
-	printf_n "$wallet_address"
+	printf_n "Wallet Address " "$wallet_address"
 	
 	local node_version="`snarkos --version` v`jq -r '.result.version' <<< \"$node_info\"`"
 	printf_n "Node Version " "$node_version"
