@@ -5,7 +5,7 @@ explorer_url_template="https://nodes.guru/aleo/aleochecker?q="
 
 # Default variables
 language="EN"
-raw_output="false"
+raw_output="true"
 
 # Options
 . <(wget -qO- https://raw.githubusercontent.com/SecorD0/utils/main/colors.sh) --
