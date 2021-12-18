@@ -111,25 +111,25 @@ main() {
 	
 	
 	local local_rpc="http://localhost:${port}/"
-	printf_n "local_rpc"
+	printf_n "$local_rpc"
 	local node_info=`wget -qO-  -t 1 -T 5 --post-data '{"jsonrpc": "2.0", "id":"documentation", "method": "getnodestate", "params": [] }' "$local_rpc" 2>/dev/null | jq`
-	printf_n "node_info"
+	printf_n "$node_info"
 	local leaderboard_info=`wget -qO- "https://www.aleo.network/api/miner-info?address=$wallet_address" | jq`
-	printf_n "leaderboard_info"
+	printf_n "$leaderboard_info"
 	
 	local mined_blocks=`jq -r ".blocksMined | length" <<< "$leaderboard_info"`
-	printf_n "mined_blocks"
+	printf_n "$mined_blocks"
 	local position=`jq -r ".position" <<< "$leaderboard_info"`
-	printf_n "position"
+	printf_n "$position"
 	local points=`jq -r ".score" <<< "$leaderboard_info"`
-	printf_n "points"
+	printf_n "$points"
 	
 	local node_version="`snarkos --version` v`jq -r '.result.version' <<< \"$node_info\"`"
-	printf_n "node_version"
+	printf_n "$node_version"
 	local latest_block_height=`jq -r ".result.latest_block_height" <<< $node_info`
-	printf_n "latest_block_height"
+	printf_n "$latest_block_height"
 	local status=`jq -r ".result.status" <<< $node_info`
-	printf_n "status"
+	printf_n "$status"
 	if grep -q "$status" <<< "Mining Ready"; then
 		local catching_up="false"
 	else
