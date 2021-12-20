@@ -94,6 +94,7 @@ main() {
 	if [ -f /etc/systemd/system/aleod.service ]; then
 		local service_file_path="/etc/systemd/system/aleod.service"
 		local service_file="aleod.service"
+		printf_n "-f service file"
 	elif [ -f /etc/systemd/system/aleod-miner.service ]; then
 		local service_file_path="/etc/systemd/system/aleod-miner.service"
 		local service_file="aleod.service"
