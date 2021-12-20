@@ -102,8 +102,10 @@ main() {
 		return 1 2>/dev/null; exit 1	
 	fi
 	local port=`cat "$service_file_path" 2>/dev/null | grep -oPm1 "(?<=rpc )([^%]+)(?=$)" | grep -oPm1 "(?<=:)([^%]+)(?=$)"`
+	printf_n "$service_file_path"
 	if [ ! -n "$port" ]; then
 		local port=`cat "$service_file_path" 2>/dev/null | grep -oPm1 "(?<=rpc )([^%]+)(?= --)" | grep -oPm1 "(?<=:)([^%]+)(?=$)"`
+		printf_n "port success"
 		if [ ! -n "$port" ]; then
 			local port="3032"
 		fi
